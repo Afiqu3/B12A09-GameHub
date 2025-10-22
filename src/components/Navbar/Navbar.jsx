@@ -48,23 +48,23 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className={`sticky top-0 z-50 transition-all duration-0 ${
-        scrolled ? "bg-black/90 shadow-md backdrop-blur" : "bg-transparent"
+    <div className={`sticky top-0 z-50 transition-all duration-1000 ${
+        scrolled ? "bg-black/70 shadow-md backdrop-blur" : "bg-transparent"
       }`}>
       <nav
-        className={`flex justify-between items-center pt-7 max-w-6xl lg:mx-auto mx-5 md:py-7 ${
+        className={`flex justify-between items-center pt-7 container lg:mx-auto mx-4 md:py-7 ${
           !isOpen ? "pb-7" : ""
         }`}
       >
         <div className="flex items-center gap-x-3">
           {isOpen ? (
             <TbXboxXFilled
-              className="text-4xl text-white md:hidden"
+              className="text-4xl text-white lg:hidden"
               onClick={() => setIsOpen(!isOpen)}
             ></TbXboxXFilled>
           ) : (
             <IoIosMenu
-              className="text-4xl text-white md:hidden"
+              className="text-4xl text-white lg:hidden"
               onClick={() => setIsOpen(!isOpen)}
             ></IoIosMenu>
           )}
@@ -74,18 +74,18 @@ const Navbar = () => {
               className="flex items-center gap-x-1 bg-linear-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent"
             >
               <img className="h-12 w-12" src={logoImg} alt="" />
-              Gamehub - A Game Library
+              GameHub
             </Link>
           </h3>
         </div>
 
 
-        <div className="md:block hidden">
-        <ul className="md:flex hidden gap-x-8 font-medium">{links}</ul>
+        <div className="lg:block hidden">
+        <ul className="lg:flex hidden gap-x-8 font-medium">{links}</ul>
         </div>
       </nav>
       {isOpen && (
-        <div className="md:hidden mt-2 mb-5 ml-10 space-y-3 max-w-45 relative h-40">
+        <div className="lg:hidden mt-2 mb-5 ml-10 space-y-3 max-w-45 relative h-40">
           <ul className={`space-y-3 animation`}>{links}</ul>
         </div>
       )}
