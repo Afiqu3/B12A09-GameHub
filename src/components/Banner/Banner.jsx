@@ -48,7 +48,7 @@ const Banner = () => {
         onMouseLeave={() => setPaused(false)}
       >
         {/* Image Slides */}
-        <div className="relative lg:w-200 w-150 h-75 lg:h-100 overflow-hidden">
+        <div className="relative lg:w-300 w-150 h-75 lg:h-100 overflow-hidden rounded-2xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={slides[index].id}
@@ -61,7 +61,7 @@ const Banner = () => {
               <img
                 src={slides[index].src}
                 alt={slides[index].title}
-                className="lg:w-200 w-150 h-75 lg:h-100 object-cover rounded-2xl"
+                className="lg:w-300 w-150 h-75 lg:h-100 object-cover"
               />
 
               <div className="absolute inset-0 bg-black/50"></div>

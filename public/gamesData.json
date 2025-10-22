@@ -6,17 +6,17 @@
     "category": "FPS",
     "downloadLink": "https://play.google.com/store/apps/details?id=com.tencent.ig&hl=en",
     "description": "PUBG Mobile immerses players in a high-stakes battle royale experience where up to 100 players parachute onto diverse, intricately designed maps like Erangel, Miramar, and Vikendi. Scavenge for an extensive arsenal of weapons, from sniper rifles to shotguns, and utilize vehicles like jeeps and boats for strategic movement. Engage in intense firefights, coordinate with teammates via voice chat, and adapt to a shrinking play zone to be the last one standing. The game offers multiple modes, including Classic, Arcade, and Ranked, alongside seasonal events, customizable skins, and realistic ballistics. With console-quality graphics, precise touch controls, and frequent content updates, PUBG Mobile delivers an unparalleled survival adventure optimized for mobile devices.",
-    "ratings": "4.5",
+    "ratings": 4.5,
     "developer": "Krafton"
   },
   {
     "id": "2",
     "title": "Call of Duty: Mobile",
-    "coverPhoto": "https://static.wikia.nocookie.net/callofduty/images/f/f4/App_Icon_CODM_Global.jpg/revision/latest/scale-to-width/360?cb=20200507033012",
+    "coverPhoto": "https://preview.redd.it/mobile-thoughts-on-call-of-duty-mobile-v0-1gol4zuufz7f1.jpeg?auto=webp&s=5cd0f31ce4c7bcde05d9960c7265de55ae2e84ad",
     "category": "FPS",
     "downloadLink": "https://play.google.com/store/apps/details?id=com.activision.callofduty.shooter&hl=en",
     "description": "Call of Duty: Mobile brings the legendary FPS franchise to mobile with a robust suite of multiplayer modes, including Team Deathmatch, Domination, Search and Destroy, and a 100-player Battle Royale. Iconic maps like Shipment, Raid, and Crash are faithfully recreated, paired with a deep weapon customization system featuring attachments, camos, and operator skills. Players can unlock scorestreaks like UAVs and Chopper Gunners, enhancing tactical gameplay. Seasonal updates introduce new maps, modes, and themed events, while the Battle Pass offers exclusive rewards. With console-grade visuals, responsive controls, and cross-progression support, this game delivers heart-pounding action for both casual and competitive players.",
-    "ratings": "4.7",
+    "ratings": 4.7,
     "developer": "Activision"
   },
   {
@@ -26,7 +26,7 @@
     "category": "RPG",
     "downloadLink": "https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact&hl=en",
     "description": "Genshin Impact is an open-world action RPG set in the breathtaking world of Teyvat, where seven elemental nations—each tied to an Archon and element like Anemo or Pyro—await exploration. Players control a diverse roster of characters, each with unique abilities, weapons, and elemental synergies, engaging in fluid, real-time combat against enemies like Hilichurls and world bosses. Uncover a sprawling narrative through quests, solve environmental puzzles, and collect resources to upgrade characters via a gacha system. The game supports solo play or four-player co-op, with cross-platform progression. Stunning anime-style visuals, a dynamic soundtrack, and regular content updates with new regions and events make Genshin Impact a captivating journey.",
-    "ratings": "4.6",
+    "ratings": 4.6,
     "developer": "miHoYo"
   },
   {
@@ -36,7 +36,7 @@
     "category": "Party",
     "downloadLink": "https://play.google.com/store/apps/details?id=com.innersloth.spacemafia&hl=en",
     "description": "Among Us is a multiplayer social deduction game that pits 4-15 players against each other in settings like a spaceship, airship, or planetary base. Crewmates must complete tasks—such as wiring repairs or fuel transfers—while staying vigilant for Impostors who sabotage systems, vent through hidden passages, and eliminate players undetected. Emergency meetings and voting sessions spark heated discussions to identify the culprit. With customizable game settings, cross-platform play, and a variety of cosmetic skins, hats, and pets, Among Us blends strategy, deception, and teamwork. Its simple yet addictive gameplay and support for proximity chat mods create a chaotic, laughter-filled experience.",
-    "ratings": "4.3",
+    "ratings": 4.3,
     "developer": "InnerSloth"
   },
   {
@@ -46,7 +46,7 @@
     "category": "Strategy",
     "downloadLink": "https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=en",
     "description": "Clash of Clans is a strategic mobile game where players construct and upgrade villages with resource buildings, defenses like cannons and mortars, and troop-training facilities. Command an army of diverse units, including Barbarians, Wizards, and Dragons, to raid enemy bases for loot or defend your own in real-time multiplayer battles. Join clans to participate in Clan Wars, Clan Games, and Capital Raids, fostering teamwork through donations and strategy sharing. A single-player campaign, seasonal challenges, and a Builder Base mode add depth. With a vibrant community, regular balance updates, and a progression system tied to Town Hall levels, Clash of Clans offers endless tactical engagement.",
-    "ratings": "4.5",
+    "ratings": 4.5,
     "developer": "Supercell"
   },
   {
@@ -56,7 +56,7 @@
     "category": "Battle Royale",
     "downloadLink": "https://store.epicgames.com/en-US",
     "description": "Fortnite is a cultural juggernaut blending battle royale, creative, and co-op gameplay in a vibrant, ever-evolving world. In Battle Royale, 100 players build fortifications, scavenge weapons, and outlast opponents on a dynamic island with seasonal storylines and events. Creative mode lets players design their own islands using robust tools, while Save the World offers a co-op PVE campaign against zombie-like husks. Frequent updates bring crossovers with Marvel, Star Wars, and more, alongside a rotating item shop for skins and emotes. With cross-platform play, squad-based voice chat, and competitive tournaments, Fortnite delivers endless variety and excitement.",
-    "ratings": "4.4",
+    "ratings": 4.4,
     "developer": "Epic Games"
   },
   {
@@ -66,7 +66,7 @@
     "category": "Sandbox",
     "downloadLink": "https://play.google.com/store/apps/details?id=com.mojang.minecraftpe&hl=en",
     "description": "Minecraft is a boundless sandbox game set in a procedurally generated world of blocks, where players mine resources like wood, stone, and diamonds to craft tools, weapons, and structures. Survive against hostile mobs like Creepers, Skeletons, and the Ender Dragon in Survival mode, or unleash creativity in Creative mode with unlimited resources. Explore diverse biomes—lush forests, arid deserts, or snowy tundras—and engage in activities like farming, redstone engineering, or trading with villagers. Multiplayer servers, modding support, and Realms enable collaborative play, while updates like Caves & Cliffs expand the world’s depth, ensuring infinite replayability.",
-    "ratings": "4.8",
+    "ratings": 4.8,
     "developer": "Mojang Studios"
   },
   {
@@ -76,7 +76,7 @@
     "category": "Racing",
     "downloadLink": "https://mkt-web.gameloft.com/en/game/asphalt-9/",
     "description": "Asphalt 9: Legends is an adrenaline-pumping arcade racer featuring over 150 hypercars from top brands like Porsche, Bugatti, and McLaren. Race across 70+ global tracks, from the streets of Shanghai to Himalayan cliffs, performing barrel rolls, 360-degree spins, and nitro-charged drifts. The career mode offers over 900 events, while multiplayer pits you against up to seven rivals in real-time races. Upgrade cars with a detailed tuning system, unlock blueprints, and climb leaderboards. With jaw-dropping graphics, touch-drive controls, and Club features for team play, Asphalt 9 delivers a cinematic racing thrill.",
-    "ratings": "4.6",
+    "ratings": 4.6,
     "developer": "Gameloft"
   },
   {
@@ -86,7 +86,7 @@
     "category": "Puzzle",
     "downloadLink": "https://play.google.com/store/apps/details?id=com.king.candycrushsaga&hl=en",
     "description": "Candy Crush Saga is a match-three puzzle sensation with over 10,000 levels of sweet challenges. Swap colorful candies to create matches, trigger boosters like striped candies or color bombs, and clear boards with limited moves. Navigate obstacles like chocolate, licorice, and jelly, while unlocking new episodes in a whimsical candy-themed world. Daily rewards, special events like Candy Necklace, and competitive leaderboards keep players engaged. With vibrant visuals, satisfying sound effects, and optional in-game purchases for extra moves or lives, Candy Crush Saga offers addictive, accessible fun for all ages.",
-    "ratings": "4.2",
+    "ratings": 4.2,
     "developer": "King"
   },
   {
@@ -96,7 +96,7 @@
     "category": "Simulation",
     "downloadLink": "https://www.roblox.com/download",
     "description": "Roblox is a massive user-generated platform where millions of players create and explore games across genres like adventure, role-playing, simulation, and obby (obstacle courses). Using Roblox Studio, players design their own experiences with scripting, 3D modeling, and physics-based mechanics, sharing them with a global community. Popular games include Adopt Me!, Brookhaven, and Tower of Hell. With cross-platform support, avatar customization, and in-game chat, Roblox fosters social interaction. Virtual currency (Robux) unlocks premium items, while Developer Exchange rewards creators, making Roblox a dynamic hub of creativity and play.",
-    "ratings": "4.4",
+    "ratings": 4.4,
     "developer": "Roblox Corporation"
   }
 ]
