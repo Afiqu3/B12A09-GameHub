@@ -24,7 +24,7 @@ const navigationData = [
   },
   {
     name: "Login",
-    path: "/installation",
+    path: "/login",
     id: 4,
   },
 ];
