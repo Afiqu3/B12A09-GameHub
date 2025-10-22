@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { useGames } from "../../Hooks/useGame";
+import { useParams } from "react-router";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import GameDetailsCard from "./GameDetailsCard";
 
 const GameDetails = () => {
-    return (
-        <div className='text-white text-2xl font-semibold absolute'>
-            game details
-        </div>
-    );
+  const { games } = useGames();
+  const [game, setGame] = useState({});
+  const { id } = useParams();
+//   console.log(id, games);
+  useEffect(() => {
+    const newGame = games.find((g) => g.id === id);
+    setGame(newGame);
+  }, [id, games]);
+//   console.log(game);
+  if(!game){
+    return <LoadingSpinner></LoadingSpinner>
+  }
+  return (
+    <div className="relative container lg:mx-auto w-full overflow-hidden text-white lg:my-25">
+        {/* <div className="absolute inset-0 bg-black/50"></div> */}
+      <GameDetailsCard game={game}></GameDetailsCard>
+    </div>
+  );
 };
 
 export default GameDetails;

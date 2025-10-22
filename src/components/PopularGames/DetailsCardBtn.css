@@ -1,0 +1,29 @@
+.flashy-glitter {
+  position: relative;
+  background: linear-gradient(90deg, #00ffb7, #00d390, #00ffb7, #00d390);
+  background-size: 300% auto;
+  color: #fff;
+  text-shadow: 0 0 10px #00ffb7, 0 0 20px #00ffb7;
+  box-shadow: 0 0 20px #00ffb7, 0 0 40px #00ffb7;
+  animation: flashy-glitter-move 1.5s linear infinite, pulse-glow 2s ease-in-out infinite;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+@keyframes flashy-glitter-move {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px #00ffb7, 0 0 30px #00ffb7;
+  }
+  50% {
+    box-shadow: 0 0 30px #00ffb7, 0 0 60px #00ffb7;
+  }
+}

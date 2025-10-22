@@ -51,6 +51,7 @@ const Navbar = () => {
     <div className={`sticky top-0 z-50 transition-all duration-1000 ${
         scrolled ? "bg-black/70 shadow-md backdrop-blur" : "bg-transparent"
       }`}>
+        {/* <div className="absolute inset-0 bg-black/50"></div> */}
       <nav
         className={`flex justify-between items-center pt-7 container lg:mx-auto mx-4 md:py-7 ${
           !isOpen ? "pb-7" : ""

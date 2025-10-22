@@ -1,14 +1,13 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+// import axios from "axios";
+// import React, { useEffect, useState } from "react";
+import { useGames } from "../../Hooks/useGame";
 import FilterGames from "./FilterGames";
 
 const PopularGames = () => {
-  const [games, setGames] = useState([]);
-  useEffect(() => {
-    axios("/gamesData.json").then((data) => {
-      setGames(data.data);
-    });
-  }, []);
+  const { games, loading } = useGames();
+  if (loading) {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
   return (
     <div className="bg-black py-15 h-full">
       <div className="container mx-auto">
