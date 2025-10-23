@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Links from "./Links";
 import { IoIosMenu } from "react-icons/io";
 import { TbXboxXFilled } from "react-icons/tb";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import "./links.css";
 import logoImg from "../../assets/logo.png";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
@@ -46,15 +46,17 @@ const privateNavigationData = [
 ];
 
 const Navbar = () => {
+const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { user, signOutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const links = navigationData.map((nav) => (
     <Links key={nav.id} nav={nav}></Links>
   ));
   const privateLinks = privateNavigationData.map((nav) => (
     <Links key={nav.id} nav={nav}></Links>
   ));
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const { user, signOutUser } = useContext(AuthContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -132,7 +134,7 @@ const Navbar = () => {
                 {privateLinks}
               </ul>
             </div>
-            <div>
+            <div onClick={() => navigate('/profile')} className="cursor-pointer">
               <img className="w-12 rounded-full" src={user.photoURL} alt="" />
             </div>
             <button
