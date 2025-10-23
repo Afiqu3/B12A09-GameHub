@@ -44,7 +44,7 @@ const Banner = () => {
     <div className="container lg:mx-auto w-full overflow-hidden text-white lg:my-15">
       <div className="absolute inset-0 bg-black/50"></div>
       <div
-        className="flex flex-col items-center justify-center h-full"
+        className="relative flex flex-col items-center justify-center h-full"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >

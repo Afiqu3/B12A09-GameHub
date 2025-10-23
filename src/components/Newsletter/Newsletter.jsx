@@ -6,7 +6,8 @@ const Newsletter = () => {
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
         <p className="text-gray-300 mb-8">
-          Get the latest updates, news, and exclusive offers straight to your inbox.
+          Get the latest updates, news, and exclusive offers straight to your
+          inbox.
         </p>
 
         <form className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -18,7 +19,7 @@ const Newsletter = () => {
           />
           <button
             type="submit"
-            className="bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:bg-[#52057B] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 cursor-pointer"
+            className="bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] text-white font-semibold px-8 py-3 rounded-full transition-all duration-500 cursor-pointer"
           >
             Subscribe
           </button>

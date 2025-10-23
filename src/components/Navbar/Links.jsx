@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router";
 import { motion } from "motion/react";
+import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 
 const Links = ({ nav }) => {
+  const {user} = useContext(AuthContext);
   return (
     <motion.li
       initial={{ opacity: 0, y: -15 }}
@@ -11,6 +13,7 @@ const Links = ({ nav }) => {
     >
       <NavLink
         to={nav.path}
+        target="_parent"
         className={({ isActive }) =>
           `relative inline-block text-white hover:text-[#632ee3] ${
             isActive

@@ -8,18 +8,18 @@ const GameDetails = () => {
   const { games } = useGames();
   const [game, setGame] = useState({});
   const { id } = useParams();
-//   console.log(id, games);
+  //   console.log(id, games);
   useEffect(() => {
     const newGame = games.find((g) => g.id === id);
     setGame(newGame);
   }, [id, games]);
-//   console.log(game);
-  if(!game){
-    return <LoadingSpinner></LoadingSpinner>
+  //   console.log(game);
+  if (!game) {
+    return <LoadingSpinner></LoadingSpinner>;
   }
   return (
     <div className="relative container lg:mx-auto w-full overflow-hidden text-white lg:my-25">
-        {/* <div className="absolute inset-0 bg-black/50"></div> */}
+      {/* <div className="absolute inset-0 bg-black/50"></div> */}
       <GameDetailsCard game={game}></GameDetailsCard>
     </div>
   );

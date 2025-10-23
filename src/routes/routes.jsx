@@ -1,10 +1,13 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../layouts/RootLayout";
 import Home from "../Pages/Home/Home";
-import GameDetails from "../components/PopularGames/GameDetails";
 import ErrorNotFound from "../Pages/ErrorNotFound/ErrorNotFound";
 import Register from "../components/Register/Register";
 import Login from "../components/Login/Login";
+import PrivateRoutes from "./PrivateRoutes";
+import GameDetails from "../components/PopularGames/GameDetails";
+import About from "../Pages/About/About";
+import MyProfile from "../Pages/MyProfile/MyProfile";
 
 export const router = createBrowserRouter([
   {
@@ -17,20 +20,36 @@ export const router = createBrowserRouter([
       },
       {
         path: "/gameDetails/:id",
-        Component: GameDetails,
+        element: (
+          <PrivateRoutes>
+            <GameDetails></GameDetails>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/register",
         Component: Register,
       },
       {
-        path: '/login',
+        path: "/login",
         Component: Login,
+      },
+      {
+        path: "/about",
+        Component: About,
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoutes>
+            <MyProfile></MyProfile>
+          </PrivateRoutes>
+        ),
       },
     ],
   },
   {
-    path: '*',
+    path: "*",
     Component: ErrorNotFound,
-  }
+  },
 ]);
