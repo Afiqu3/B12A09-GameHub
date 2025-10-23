@@ -1,12 +1,17 @@
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
-// import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
+import { Bounce, toast } from "react-toastify";
 
 const Register = () => {
-//   const { createUser } = useContext(AuthContext);
+  const { createUser, error, setError } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const [upper, setUpper] = useState(false);
+  const [lower, setLower] = useState(false);
+  const [length, setLength] = useState(false);
+  const navigate = useNavigate();
   //   const handleRegister = (e) => {
   //     e.preventDefault();
   //     const email = e.target.email.value;
@@ -45,19 +50,61 @@ const Register = () => {
   //         setError(error.message);
   //       });
   //   };
+  const handlePassOnChange = (e) => {
+    const pass = e.target.value;
+    const checkUpper = /[A-Z]/;
+    const checkLower = /[a-z]/;
+    const checkLength = /^.{6,}$/;
+    if (checkUpper.test(pass)) {
+      setUpper(true);
+    } else {
+      setUpper(false);
+    }
+    if (checkLower.test(pass)) {
+      setLower(true);
+    } else {
+      setLower(false);
+    }
+    if (checkLength.test(pass)) {
+      setLength(true);
+    } else {
+      setLength(false);
+    }
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password)
-    // createUser(email, password)
-    //   .then((result) => {
-    //     console.log(result.user);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.message);
-    //   });
+    if (!upper) {
+      setError("Password must have have an uppercase letter");
+      return;
+    } else if (!lower) {
+      setError("Password must have have an lowercase letter");
+      return;
+    } else if (!length) {
+      setError("Password length must be at least 6 character");
+      return;
+    }
+    setError("");
+    createUser(email, password)
+      .then((result) => {
+        toast.success("Register Successfully!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Bounce,
+        });
+        navigate('/');
+      })
+      .catch((error) => {
+        // console.log(error.message);
+      });
   };
   const handleTogglePassword = (e) => {
     e.preventDefault();
@@ -65,7 +112,7 @@ const Register = () => {
   };
   return (
     <div className="card bg-black text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
-        <title>Register</title>
+      <title>Register</title>
       <div className="card-body">
         <h1 className="text-3xl font-bold">Register now!</h1>
         <form onSubmit={handleRegister}>
@@ -77,6 +124,7 @@ const Register = () => {
               name="name"
               className="input focus:border-transparent text-black"
               placeholder="Name"
+              required
             />
             {/* user photo */}
             <label className="label">Photo URL</label>
@@ -85,6 +133,7 @@ const Register = () => {
               name="photo"
               className="input focus:border-transparent text-black"
               placeholder="Photo URL"
+              required
             />
             {/* email */}
             <label className="label">Email</label>
@@ -93,14 +142,17 @@ const Register = () => {
               name="email"
               className="input focus:border-transparent text-black"
               placeholder="Email"
+              required
             />
             <label className="label">Password</label>
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
+                onChange={handlePassOnChange}
                 className="input focus:border-transparent text-black"
                 placeholder="Password"
+                required
               />
               <span
                 onClick={handleTogglePassword}
@@ -109,15 +161,29 @@ const Register = () => {
                 {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
               </span>
             </div>
+            <p className={`${upper ? "text-green-500" : "text-white/30"}`}>
+              Must have an Uppercase letter
+            </p>
+            <p className={`${lower ? "text-green-500" : "text-white/30"}`}>
+              Must have a Lowercase letter
+            </p>
+            <p className={`${length ? "text-green-500" : "text-white/30"}`}>
+              Length must be at least 6 character
+            </p>
             <button className="btn btn-neutral mt-4">Register</button>
           </fieldset>
         </form>
+        {error && <p className="text-red-500">{error}</p>}
         <div className="flex justify-between items-center text-white gap-2">
-            <div className="h-px border w-1/2"></div>
-            <p>or</p>
-            <div className="h-px border w-1/2"></div>
+          <div className="h-px border w-1/2"></div>
+          <p>or</p>
+          <div className="h-px border w-1/2"></div>
         </div>
-        <button className="btn btn-neutral mt-2"> <FcGoogle size={24} />Sign Up With Google</button>
+        <button className="btn btn-neutral mt-2">
+          {" "}
+          <FcGoogle size={24} />
+          Sign Up With Google
+        </button>
         <p className="text-center">
           Already Have an account? Please{" "}
           <Link className="text-blue-500 hover:text-blue-900" to={"/login"}>
