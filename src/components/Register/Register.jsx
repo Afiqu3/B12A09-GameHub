@@ -1,5 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import {
+  FaEye,
+  FaEyeSlash,
+  FaCheckCircle,
+  FaTimesCircle,
+} from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
@@ -122,10 +127,15 @@ const Register = () => {
     }
   }, [user, navigate]);
   return (
-    <div className="card bg-black text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
+    <div className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
       <title>Register</title>
       <div className="card-body">
-        <h1 className="text-3xl font-bold">Register now!</h1>
+        <div className="text-center mb-4">
+          <h1 className="text-4xl font-bold bg-linear-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent mb-2">
+            Create Account
+          </h1>
+          <p className="text-gray-400 text-sm">Join us today and get started</p>
+        </div>
         <form onSubmit={handleRegister}>
           <fieldset className="fieldset">
             {/* User name */}
@@ -155,6 +165,7 @@ const Register = () => {
               placeholder="Email"
               required
             />
+            {/* password */}
             <label className="label">Password</label>
             <div className="relative">
               <input
@@ -167,34 +178,79 @@ const Register = () => {
               />
               <span
                 onClick={handleTogglePassword}
-                className="absolute top-3.5 right-6 z-1 cursor-pointer text-black"
+                className="absolute top-3 right-6 z-1 cursor-pointer text-black"
               >
-                {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                {showPassword ? (
+                  <FaEyeSlash size={18}></FaEyeSlash>
+                ) : (
+                  <FaEye size={18}></FaEye>
+                )}
               </span>
             </div>
-            <p className={`${upper ? "text-green-500" : "text-white/30"}`}>
-              Must have an Uppercase letter
-            </p>
-            <p className={`${lower ? "text-green-500" : "text-white/30"}`}>
-              Must have a Lowercase letter
-            </p>
-            <p className={`${length ? "text-green-500" : "text-white/30"}`}>
-              Length must be at least 6 character
-            </p>
-            <button className="btn btn-neutral mt-4">Register</button>
+            <div className="mt-3 space-y-1.5 text-sm">
+              <div className="flex items-center gap-2">
+                {upper ? (
+                  <FaCheckCircle
+                    className="text-green-500 shrink-0"
+                    size={14}
+                  />
+                ) : (
+                  <FaTimesCircle className="text-gray-600 shrink-0" size={14} />
+                )}
+                <span className={upper ? "text-green-500" : "text-gray-500"}>
+                  At least one uppercase letter
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                {lower ? (
+                  <FaCheckCircle
+                    className="text-green-500 shrink-0"
+                    size={14}
+                  />
+                ) : (
+                  <FaTimesCircle className="text-gray-600 shrink-0" size={14} />
+                )}
+                <span className={lower ? "text-green-500" : "text-gray-500"}>
+                  At least one lowercase letter
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                {length ? (
+                  <FaCheckCircle
+                    className="text-green-500 shrink-0"
+                    size={14}
+                  />
+                ) : (
+                  <FaTimesCircle className="text-gray-600 shrink-0" size={14} />
+                )}
+                <span className={length ? "text-green-500" : "text-gray-500"}>
+                  Minimum 6 characters
+                </span>
+              </div>
+            </div>
+            <button className="btn btn-neutral font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
+              Register
+            </button>
           </fieldset>
         </form>
+
         {error && <p className="text-red-500">{error}</p>}
+
         <div className="flex justify-between items-center text-white gap-2">
-          <div className="h-px border w-1/2"></div>
+          <div className="border w-1/2 border-gray-400"></div>
           <p>or</p>
-          <div className="h-px border w-1/2"></div>
+          <div className="border w-1/2 border-gray-400"></div>
         </div>
-        <button className="btn btn-neutral mt-2" onClick={handleGoogleSignUp}>
+
+        <button
+          className="btn btn-neutral bg-gray-800/50 hover:bg-gray-800 border text-white font-medium transition-all duration-300"
+          onClick={handleGoogleSignUp}
+        >
           {" "}
           <FcGoogle size={24} />
           Sign Up With Google
         </button>
+        
         <p className="text-center">
           Already Have an account? Please{" "}
           <Link

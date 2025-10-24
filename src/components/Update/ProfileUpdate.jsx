@@ -27,14 +27,21 @@ const ProfileUpdate = () => {
         });
         navigate("/");
       })
-      .catch((error) => {
+      .catch(() => {
         // console.log(error);
       });
   };
   return (
-    <div className="card bg-black text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
+    <div className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
       <div className="card-body">
-        <h1 className="text-3xl font-bold">Update Profile</h1>
+        <div className="text-center mb-6">
+          <h1 className="text-4xl font-bold bg-linear-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent mb-2">
+            Update Profile
+          </h1>
+          <p className="text-gray-400 text-sm">
+            Manage your account information
+          </p>
+        </div>
         <form onSubmit={handleUpdate}>
           <fieldset className="fieldset">
             {/* User name */}
@@ -55,7 +62,7 @@ const ProfileUpdate = () => {
               placeholder={user.photoURL}
               required
             />
-            <button className="btn btn-neutral mt-4">
+            <button className="btn btn-neutral font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
               <MdSystemUpdateAlt className="text-white" /> Update
             </button>
           </fieldset>

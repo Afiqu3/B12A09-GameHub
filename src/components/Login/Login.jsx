@@ -4,10 +4,11 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 import { FiLogIn } from "react-icons/fi";
+import { Bounce, toast } from "react-toastify";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [saveEmail, setSaveEmail] = useState('');
+  const [saveEmail, setSaveEmail] = useState("");
   const { signInUser, setLoading, signInWithGoogle, error, setError } =
     useContext(AuthContext);
   const location = useLocation();
@@ -21,6 +22,17 @@ const Login = () => {
     signInUser(email, password)
       .then(() => {
         // console.log(result.user);
+        toast.success("Login Successfully!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Bounce,
+        });
         navigate(location?.state || "/");
         setError("");
       })
@@ -32,6 +44,17 @@ const Login = () => {
   const handleGoogleLogIn = () => {
     signInWithGoogle()
       .then(() => {
+        toast.success("Login Successfully!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Bounce,
+        });
         navigate(location?.state || "/");
       })
       .catch(() => {
@@ -51,10 +74,19 @@ const Login = () => {
   // }, [user, navigate]);
 
   return (
-    <div className="card bg-black text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
+    <div className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
       <title>Login</title>
+
       <div className="card-body">
-        <h1 className="text-3xl font-bold mb-6">Login</h1>
+        <div className="text-center mb-6">
+          <h1 className="text-4xl font-bold bg-linear-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent mb-2">
+            Welcome Back
+          </h1>
+          <p className="text-gray-400 text-sm">
+            Login in to continue to your account
+          </p>
+        </div>
+
         <form onSubmit={handleLogin}>
           <fieldset className="fieldset space-y-3">
             {/* email */}
@@ -66,6 +98,7 @@ const Login = () => {
               placeholder="Email"
               required
             />
+            {/* password */}
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
@@ -76,34 +109,51 @@ const Login = () => {
               />
               <span
                 onClick={handleTogglePassword}
-                className="absolute top-3.5 right-2 z-1 cursor-pointer text-black"
+                className="absolute top-3 right-2 z-1 cursor-pointer text-black"
               >
-                {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                {showPassword ? (
+                  <FaEyeSlash size={18}></FaEyeSlash>
+                ) : (
+                  <FaEye size={18}></FaEye>
+                )}
               </span>
             </div>
             <div
             // onClick={handlePasswordReset}
             >
-              <button onClick={() => navigate('/forgotPassword', {state: saveEmail})} className="link link-hover">Forgot password?</button>
+              <button
+                onClick={() =>
+                  navigate("/forgotPassword", { state: saveEmail })
+                }
+                className="link link-hover"
+              >
+                Forgot password?
+              </button>
             </div>
-            <button className="btn btn-neutral">
+            <button className="btn btn-neutral font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
               {" "}
               <FiLogIn className="text-white" />
               Login
             </button>
           </fieldset>
         </form>
+
         {error && <p className="text-red-500">{error}</p>}
+
         <div className="flex justify-between items-center text-white gap-2">
-          <div className="h-px border w-1/2"></div>
+          <div className="border w-1/2 border-gray-400"></div>
           <p>or</p>
-          <div className="h-px border w-1/2"></div>
+          <div className="border w-1/2 border-gray-400"></div>
         </div>
-        <button onClick={handleGoogleLogIn} className="btn btn-neutral mt-2">
+        <button
+          onClick={handleGoogleLogIn}
+          className="btn btn-neutral bg-gray-800/50 hover:bg-gray-800 border text-white font-medium transition-all duration-300"
+        >
           {" "}
           <FcGoogle size={24} />
           Login With Google
         </button>
+
         <p className="text-center">
           Do not have account? Please{" "}
           <Link

@@ -16,7 +16,7 @@ const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const createUser = (email, password) => {
     setLoading(true);
@@ -44,13 +44,14 @@ const AuthProvider = ({ children }) => {
   const resetPassword = (email) => {
     setLoading(true);
     return sendPasswordResetEmail(auth, email);
-  }
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    //   console.log("inside auth provider", currentUser);
       setUser(currentUser);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     });
     return () => {
       unsubscribe();
@@ -66,7 +67,7 @@ const AuthProvider = ({ children }) => {
     resetPassword,
     setError,
     setLoading,
-    error, 
+    error,
     loading,
     user,
   };

@@ -6,9 +6,9 @@ import Register from "../components/Register/Register";
 import Login from "../components/Login/Login";
 import PrivateRoutes from "./PrivateRoutes";
 import GameDetails from "../components/PopularGames/GameDetails";
-import About from "../Pages/About/About";
 import MyProfile from "../Pages/MyProfile/MyProfile";
 import ForgotPassword from "../Pages/ForgotPassword/ForgotPassword";
+import AboutPage from "../Pages/About/AboutPage";
 
 export const router = createBrowserRouter([
   {
@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/about",
-    Component: About,
+    Component: AboutPage,
   },
   {
     path: "*",

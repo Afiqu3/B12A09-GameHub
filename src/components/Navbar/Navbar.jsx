@@ -6,8 +6,9 @@ import { Link, NavLink, useNavigate } from "react-router";
 import "./links.css";
 import logoImg from "../../assets/logo.png";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
-import { FiLogOut } from "react-icons/fi";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { Bounce, toast } from "react-toastify";
+import { motion } from "motion/react";
 
 const navigationData = [
   {
@@ -20,16 +21,16 @@ const navigationData = [
     path: "/about",
     id: 2,
   },
-  {
-    name: "Register",
-    path: "/register",
-    id: 3,
-  },
-  {
-    name: "Login",
-    path: "/login",
-    id: 4,
-  },
+  // {
+  //   name: "Register",
+  //   path: "/register",
+  //   id: 3,
+  // },
+  // {
+  //   name: "Login",
+  //   path: "/login",
+  //   id: 4,
+  // },
 ];
 
 const privateNavigationData = [
@@ -46,7 +47,7 @@ const privateNavigationData = [
 ];
 
 const Navbar = () => {
-const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { user, signOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -123,8 +124,30 @@ const [isOpen, setIsOpen] = useState(false);
         </div>
 
         {!user && (
-          <div className="lg:block hidden">
+          <div className="lg:flex gap-x-4 items-center hidden">
             <ul className="lg:flex hidden gap-x-8 font-medium">{links}</ul>
+            <motion.div
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <div className="flex items-center gap-x-2">
+                <Link
+                  to={"/register"}
+                  target="_parent"
+                  className="hidden group lg:flex items-center gap-2 bg-linear-to-r from-[#52057B] to-[#892CDC] text-white font-semibold px-6 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform focus:ring-2 focus:ring-[#892CDC] focus:outline-none cursor-pointer"
+                >
+                  <span>Register</span>
+                </Link>
+                <Link
+                  to={"/login"}
+                  target="_parent"
+                  className="hidden group lg:flex items-center gap-2 bg-linear-to-r from-[#52057B] to-[#892CDC] text-white font-semibold px-6 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform focus:ring-2 focus:ring-[#892CDC] focus:outline-none cursor-pointer"
+                >
+                  <span>Login</span>
+                </Link>
+              </div>
+            </motion.div>
           </div>
         )}
         {user && (
@@ -134,34 +157,71 @@ const [isOpen, setIsOpen] = useState(false);
                 {privateLinks}
               </ul>
             </div>
-            <div onClick={() => navigate('/profile')} className="cursor-pointer">
-              <img className="w-12 rounded-full" src={user.photoURL} alt="" />
-            </div>
-            <button
-              onClick={handleLogOut}
-              className="hidden group lg:flex items-center gap-2 bg-linear-to-r from-[#52057B] to-[#892CDC] text-white font-semibold px-6 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform focus:ring-2 focus:ring-[#892CDC] focus:outline-none cursor-pointer"
+            <motion.div
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
             >
-              <FiLogOut className="text-white text-lg transition-transform duration-300 group-hover:-translate-x-1" />
-              <span>Logout</span>
-            </button>
+              <div
+                onClick={() => navigate("/profile")}
+                className="cursor-pointer"
+              >
+                <img className="w-12 rounded-full" src={user.photoURL} alt="" />
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <button
+                onClick={handleLogOut}
+                className="hidden group lg:flex items-center gap-2 bg-linear-to-r from-[#52057B] to-[#892CDC] text-white font-semibold px-6 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform focus:ring-2 focus:ring-[#892CDC] focus:outline-none cursor-pointer"
+              >
+                <FiLogOut className="text-white text-lg transition-transform duration-300 group-hover:-translate-x-1" />
+                <span>Logout</span>
+              </button>
+            </motion.div>
           </div>
         )}
       </nav>
       {isOpen && !user && (
-        <div className="lg:hidden mt-2 mb-5 ml-10 space-y-3 max-w-45 relative h-40">
+        <div className="lg:hidden mt-2 mb-5 ml-10 space-y-3 max-w-45 relative h-45">
           <ul className={`space-y-3 animation`}>{links}</ul>
+          <motion.div
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <div className="space-y-3">
+              <Link
+                to={"/register"}
+                target="_parent"
+                className="lg:hidden w-2/3 animation flex items-center justify-center bg-linear-to-r from-[#52057B] to-[#892CDC] text-white font-semibold sm:px-6 px-6 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform focus:ring-2 focus:ring-[#892CDC] focus:outline-none cursor-pointer"
+              >
+                <span>Register</span>
+              </Link>
+              <Link
+                to={"/login"}
+                target="_parent"
+                className="lg:hidden w-2/3 animation flex items-center justify-center bg-linear-to-r from-[#52057B] to-[#892CDC] text-white font-semibold px-6 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform focus:ring-2 focus:ring-[#892CDC] focus:outline-none cursor-pointer"
+              >
+                <span>Login</span>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       )}
       {isOpen && user && (
         <div className="lg:hidden mt-2 mb-5 ml-10 space-y-3 max-w-45 relative h-35">
           <ul className={`space-y-3 animation`}>{privateLinks}</ul>
           <button
-              onClick={handleLogOut}
-              className="animation lg:hidden group flex items-center gap-2 bg-linear-to-r from-[#52057B] to-[#892CDC] text-white font-semibold px-6 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform focus:ring-2 focus:ring-[#892CDC] focus:outline-none cursor-pointer"
-            >
-              <FiLogOut className="text-white text-lg transition-transform duration-300 group-hover:-translate-x-1" />
-              <span>Logout</span>
-            </button>
+            onClick={handleLogOut}
+            className="animation lg:hidden group flex items-center gap-2 bg-linear-to-r from-[#52057B] to-[#892CDC] text-white font-semibold px-6 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out transform focus:ring-2 focus:ring-[#892CDC] focus:outline-none cursor-pointer"
+          >
+            <FiLogOut className="text-white text-lg transition-transform duration-300 group-hover:-translate-x-1" />
+            <span>Logout</span>
+          </button>
         </div>
       )}
     </div>

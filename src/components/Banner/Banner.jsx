@@ -44,16 +44,16 @@ const Banner = () => {
     <div className="max-6xl lg:mx-auto w-full overflow-hidden text-white lg:my-15">
       <div className="absolute inset-0 bg-black/50"></div>
       <div
-        className="relative flex flex-col items-center justify-center h-full"
+        className="relative flex flex-col items-center justify-center h-fit"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
         {/* Image Slides */}
-        <div className="relative lg:w-300 w-150 h-75 lg:h-100 overflow-hidden rounded-2xl">
+        <div className="relative lg:w-300 w-150 h-fit lg:h-100 overflow-hidden rounded-2xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={slides[index].id}
-              className="absolute inset-0"
+              className=""
               initial={{ opacity: 1, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 1, scale: 0.95 }}
@@ -62,7 +62,7 @@ const Banner = () => {
               <img
                 src={slides[index].src}
                 alt={slides[index].title}
-                className="lg:w-300 w-150 h-75 lg:h-100 object-cover"
+                className="lg:w-300 w-150 h-fit lg:h-fit object-cover"
               />
 
               <div className="absolute inset-0 bg-black/50"></div>
@@ -79,10 +79,10 @@ const Banner = () => {
               exit={{ y: -40, opacity: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h1 className="text-xl md:text-5xl font-extrabold mb-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent">
+              <h1 className="text-xl lg:text-5xl md:text-4xl font-extrabold mb-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent">
                 {slides[index].title}
               </h1>
-              <p className="text-base md:text-xl mb-6 max-w-2xl mx-auto text-gray-200">
+              <p className="text-base lg:text-xl mb-6 max-w-2xl mx-auto text-gray-200">
                 {slides[index].subtitle}
               </p>
               <motion.button
