@@ -10,7 +10,7 @@ const PopularGames = () => {
   }
   return (
     <div className="bg-black py-15 h-full">
-      <div className="container mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-2">
           <h2 className="text-white md:text-4xl text-2xl font-bold">
             Popular Games

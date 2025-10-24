@@ -3,7 +3,7 @@ import React from "react";
 const Newsletter = () => {
   return (
     <section className="bg-black text-white py-16 px-6">
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
         <p className="text-gray-300 mb-8">
           Get the latest updates, news, and exclusive offers straight to your

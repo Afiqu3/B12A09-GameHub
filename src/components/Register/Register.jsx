@@ -61,7 +61,7 @@ const Register = () => {
     }
     setError("");
     createUser(email, password)
-      .then((result) => {
+      .then(() => {
         // const user = result.user;
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
@@ -79,18 +79,18 @@ const Register = () => {
             signOutUser();
             navigate("/");
           })
-          .catch((error) => {
+          .catch(() => {
             // console.log(error);
           });
       })
-      .catch((error) => {
+      .catch(() => {
         // console.log(error.message);
       });
   };
 
   const handleGoogleSignUp = () => {
     signInWithGoogle()
-      .then((result) => {
+      .then(() => {
         toast.success("Register Successfully!", {
           position: "top-center",
           autoClose: 5000,
@@ -106,7 +106,7 @@ const Register = () => {
         // console.log(result.user);
         navigate("/");
       })
-      .catch((error) => {
+      .catch(() => {
         // console.log(error.message);
       });
   };

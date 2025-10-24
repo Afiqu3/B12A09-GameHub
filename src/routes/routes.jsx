@@ -8,6 +8,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import GameDetails from "../components/PopularGames/GameDetails";
 import About from "../Pages/About/About";
 import MyProfile from "../Pages/MyProfile/MyProfile";
+import ForgotPassword from "../Pages/ForgotPassword/ForgotPassword";
 
 export const router = createBrowserRouter([
   {
@@ -35,8 +36,8 @@ export const router = createBrowserRouter([
         Component: Login,
       },
       {
-        path: "/about",
-        Component: About,
+        path: '/forgotPassword',
+        Component: ForgotPassword,
       },
       {
         path: "/profile",
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "/about",
+    Component: About,
   },
   {
     path: "*",

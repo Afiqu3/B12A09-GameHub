@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
@@ -7,7 +7,8 @@ import { FiLogIn } from "react-icons/fi";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { signInUser, user, setLoading, signInWithGoogle, error, setError } =
+  const [saveEmail, setSaveEmail] = useState('');
+  const { signInUser, setLoading, signInWithGoogle, error, setError } =
     useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,12 +19,12 @@ const Login = () => {
     const password = e.target.password.value;
     // console.log(email, password)
     signInUser(email, password)
-      .then((result) => {
+      .then(() => {
         // console.log(result.user);
         navigate(location?.state || "/");
         setError("");
       })
-      .catch((error) => {
+      .catch(() => {
         setLoading(false);
         setError("Invalid Email or Password");
       });
@@ -33,7 +34,7 @@ const Login = () => {
       .then(() => {
         navigate(location?.state || "/");
       })
-      .catch((error) => {
+      .catch(() => {
         // console.log(error.message);
       });
   };
@@ -60,8 +61,10 @@ const Login = () => {
             <input
               type="email"
               name="email"
+              onChange={(e) => setSaveEmail(e.target.value)}
               className="input focus:border-transparent text-black w-full"
               placeholder="Email"
+              required
             />
             <div className="relative">
               <input
@@ -69,6 +72,7 @@ const Login = () => {
                 name="password"
                 className="input focus:border-transparent text-black w-full"
                 placeholder="Password"
+                required
               />
               <span
                 onClick={handleTogglePassword}
@@ -80,7 +84,7 @@ const Login = () => {
             <div
             // onClick={handlePasswordReset}
             >
-              <a className="link link-hover">Forgot password?</a>
+              <button onClick={() => navigate('/forgotPassword', {state: saveEmail})} className="link link-hover">Forgot password?</button>
             </div>
             <button className="btn btn-neutral">
               {" "}

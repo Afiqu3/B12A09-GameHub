@@ -85,7 +85,7 @@ const [isOpen, setIsOpen] = useState(false);
           transition: Bounce,
         });
       })
-      .catch((error) => {
+      .catch(() => {
         // console.log(error);
       });
   };
