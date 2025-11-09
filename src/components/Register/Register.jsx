@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 import { Bounce, toast } from "react-toastify";
+import { motion } from "motion/react";
 
 const Register = () => {
   const {
@@ -127,7 +128,12 @@ const Register = () => {
     }
   }, [user, navigate]);
   return (
-    <div className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
+    <motion.div
+      className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
       <title>Register</title>
       <div className="card-body">
         <div className="text-center mb-4">
@@ -136,6 +142,7 @@ const Register = () => {
           </h1>
           <p className="text-gray-400 text-sm">Join us today and get started</p>
         </div>
+
         <form onSubmit={handleRegister}>
           <fieldset className="fieldset">
             {/* User name */}
@@ -228,7 +235,7 @@ const Register = () => {
                 </span>
               </div>
             </div>
-            <button className="btn btn-neutral font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
+            <button className="btn btn-neutral text-white font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
               Register
             </button>
           </fieldset>
@@ -250,7 +257,7 @@ const Register = () => {
           <FcGoogle size={24} />
           Sign Up With Google
         </button>
-        
+
         <p className="text-center">
           Already Have an account? Please{" "}
           <Link
@@ -262,7 +269,7 @@ const Register = () => {
           </Link>
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

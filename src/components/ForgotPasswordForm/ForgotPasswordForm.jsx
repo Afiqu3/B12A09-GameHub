@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 import { Bounce, toast } from "react-toastify";
+import { motion } from "motion/react";
 
 const ForgotPasswordForm = () => {
   const location = useLocation();
@@ -41,7 +42,12 @@ const ForgotPasswordForm = () => {
   };
   return (
     <div>
-      <div className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
+      <motion.div
+        className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="card-body">
           <div className="text-center mb-6">
             <h1 className="text-4xl font-bold bg-linear-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent mb-2">
@@ -65,13 +71,13 @@ const ForgotPasswordForm = () => {
               <div
               // onClick={handlePasswordReset}
               ></div>
-              <button className="btn btn-neutral font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
+              <button className="btn btn-neutral text-white font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
                 Reset Password
               </button>
             </fieldset>
           </form>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

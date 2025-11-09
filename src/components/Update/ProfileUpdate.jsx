@@ -3,6 +3,7 @@ import { MdSystemUpdateAlt } from "react-icons/md";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 import { Bounce, toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import { motion } from "motion/react";
 
 const ProfileUpdate = () => {
   const { user, updateUser } = useContext(AuthContext);
@@ -32,9 +33,21 @@ const ProfileUpdate = () => {
       });
   };
   return (
-    <div className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
-      <div className="card-body">
-        <div className="text-center mb-6">
+    <motion.div
+      className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto lg:my-10 md:my-2 my-30"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="card-body relative">
+
+        <img
+          className="lg:w-50 lg:h-50 w-40 h-40 rounded-full absolute lg:-top-25 -top-20 lg:left-22 left-18 md:left-27"
+          src={user.photoURL}
+          alt=""
+        />
+
+        <div className="text-center mt-20 mb-6">
           <h1 className="text-4xl font-bold bg-linear-to-r from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent mb-2">
             Update Profile
           </h1>
@@ -42,6 +55,7 @@ const ProfileUpdate = () => {
             Manage your account information
           </p>
         </div>
+
         <form onSubmit={handleUpdate}>
           <fieldset className="fieldset">
             {/* User name */}
@@ -62,13 +76,13 @@ const ProfileUpdate = () => {
               placeholder={user.photoURL}
               required
             />
-            <button className="btn btn-neutral font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
+            <button className="btn btn-neutral text-white font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
               <MdSystemUpdateAlt className="text-white" /> Update
             </button>
           </fieldset>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

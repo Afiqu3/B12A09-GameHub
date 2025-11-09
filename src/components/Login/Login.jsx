@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 import { FiLogIn } from "react-icons/fi";
 import { Bounce, toast } from "react-toastify";
+import { motion } from "motion/react";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -74,7 +75,12 @@ const Login = () => {
   // }, [user, navigate]);
 
   return (
-    <div className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10">
+    <motion.div
+      className="card bg-linear-to-br from-gray-900 via-black to-gray-900 border border-gray-800 text-white w-full max-w-sm shrink-0 shadow-2xl mx-auto my-10"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
       <title>Login</title>
 
       <div className="card-body">
@@ -130,7 +136,7 @@ const Login = () => {
                 Forgot password?
               </button>
             </div>
-            <button className="btn btn-neutral font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
+            <button className="btn btn-neutral text-white font-semibold mt-4 bg-linear-to-r from-[#632ee3] to-[#9f62f2] hover:from-[#52057B] hover:to-[#892CDC] transition-all duration-300">
               {" "}
               <FiLogIn className="text-white" />
               Login
@@ -165,7 +171,7 @@ const Login = () => {
           </Link>
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

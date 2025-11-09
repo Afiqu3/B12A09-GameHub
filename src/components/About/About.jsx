@@ -8,7 +8,7 @@ const About = () => {
       <div className="max-w-6xl mx-auto py-16 text-gray-300 px-6 md:px-16">
         <motion.div
           className="text-center mb-12"
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
@@ -23,7 +23,12 @@ const About = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <motion.div
             className="bg-[#0a1a2f] rounded-2xl p-6 text-center shadow-lg hover:shadow-[#892CDC]/30 transition-shadow duration-300"
             whileHover={{ scale: 1.05 }}
@@ -79,14 +84,14 @@ const About = () => {
               their projects grow.
             </p>
           </motion.div>
-        </div>
+        </motion.div>
 
         <motion.div
           className="mt-20 text-center max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          // viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
           <p className="text-gray-400 leading-relaxed">

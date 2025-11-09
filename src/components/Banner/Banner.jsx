@@ -30,23 +30,22 @@ const slides = [
 
 const Banner = () => {
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  // const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (paused) return;
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(interval);
-  }, [paused]);
+  }, []);
 
   return (
     <div className="max-6xl lg:mx-auto w-full overflow-hidden text-white lg:my-15">
       <div className="absolute inset-0 bg-black/50"></div>
       <div
         className="relative flex flex-col items-center justify-center h-fit"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
+        // onMouseEnter={() => setPaused(true)}
+        // onMouseLeave={() => setPaused(false)}
       >
         {/* Image Slides */}
         <div className="relative lg:w-300 w-150 h-fit lg:h-100 overflow-hidden rounded-2xl">
@@ -54,10 +53,10 @@ const Banner = () => {
             <motion.div
               key={slides[index].id}
               className=""
-              initial={{ opacity: 1, scale: 1.05 }}
+              initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 1, scale: 0.95 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               <img
                 src={slides[index].src}
@@ -103,7 +102,7 @@ const Banner = () => {
               className={`w-3 h-3 rounded-full ${
                 i === index ? "bg-[#9f62f2]" : "bg-gray-400"
               }`}
-              layoutId="indicator"
+              layoutId={i === index ? "indicator" : undefined}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
           ))}

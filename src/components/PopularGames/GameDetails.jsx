@@ -8,12 +8,13 @@ const GameDetails = () => {
   const { games } = useGames();
   const [game, setGame] = useState({});
   const { id } = useParams();
-  //   console.log(id, games);
+  // console.log(games);
   useEffect(() => {
+    if (!games) return;
     const newGame = games.find((g) => g.id === id);
-    setGame(newGame);
+    setGame(newGame);;
   }, [id, games]);
-  //   console.log(game);
+
   if (!game) {
     return <LoadingSpinner></LoadingSpinner>;
   }

@@ -1,16 +1,30 @@
 import React from "react";
+import { motion } from "motion/react";
 
 const Newsletter = () => {
   return (
     <section className="bg-linear-to-br from-gray-900 via-black to-gray-900 text-white py-16 px-6">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-        <p className="text-gray-300 mb-8">
-          Get the latest updates, news, and exclusive offers straight to your
-          inbox.
-        </p>
+      <motion.div className="max-w-6xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-bold mb-4">
+            Subscribe to Our Newsletter
+          </h2>
+          <p className="text-gray-300 mb-8">
+            Get the latest updates, news, and exclusive offers straight to your
+            inbox.
+          </p>
+        </motion.div>
 
-        <form className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <motion.form
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <input
             type="email"
             placeholder="Enter your email"
@@ -23,8 +37,8 @@ const Newsletter = () => {
           >
             Subscribe
           </button>
-        </form>
-      </div>
+        </motion.form>
+      </motion.div>
     </section>
   );
 };

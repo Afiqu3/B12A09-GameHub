@@ -1,24 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import GameCard from "../PopularGames/GameCard";
 import { motion } from "motion/react";
-import GameCard from "./GameCard";
 
-const FilterGames = ({ games }) => {
-  const [filterGames, setFilterGames] = useState([]);
-
-  useEffect(() => {
-    const newData = [...games].sort((a, b) => b.ratings - a.ratings);
-    setFilterGames(newData);
-  }, [games]);
-
+const Games = ({ games }) => {
   return (
     <motion.div
-      className="mt-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 p-4 lg:p-0"
+      className="mt-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 p-4 lg:p-0"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ amount: 0.3 }}
+      viewport={{ amount: 0.1 }}
       transition={{ duration: 0.5 }}
     >
-      {filterGames.slice(0, 4).map((game, index) => (
+      {games.map((game, index) => (
         <motion.div
           key={game.id}
           initial={{
@@ -45,4 +38,4 @@ const FilterGames = ({ games }) => {
   );
 };
 
-export default FilterGames;
+export default Games;

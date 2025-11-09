@@ -1,16 +1,15 @@
-// import axios from "axios";
-// import React, { useEffect, useState } from "react";
+import React from "react";
+import Games from "./Games";
 import { useGames } from "../../Hooks/useGame";
-import FilterGames from "./FilterGames";
 import { motion } from "motion/react";
 
-const PopularGames = () => {
+const AllGames = () => {
   const { games, loading } = useGames();
   if (loading) {
     return <LoadingSpinner></LoadingSpinner>;
   }
   return (
-    <div className="bg-black py-15">
+    <div className="bg-linear-to-br from-gray-900 via-black to-gray-900 py-15">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center space-y-2"
@@ -19,14 +18,14 @@ const PopularGames = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-white md:text-4xl text-2xl font-bold">
-            Popular Games
+            All Games
           </h2>
           <div className="h-px bg-[#9f62f2] w-30 mx-auto"></div>
-        </motion.div>
-        <FilterGames games={games}></FilterGames>
+        </motion.div>    
+        <Games games={games}></Games>
       </div>
     </div>
   );
 };
 
-export default PopularGames;
+export default AllGames;
