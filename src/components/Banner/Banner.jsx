@@ -95,6 +95,7 @@ const Banner = () => {
           </AnimatePresence>
         </div>
 
+
         <div className="absolute bottom-8 flex gap-3">
           {slides.map((_, i) => (
             <motion.div
